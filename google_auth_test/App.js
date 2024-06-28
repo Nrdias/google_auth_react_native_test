@@ -4,17 +4,17 @@ import { GoogleSignin, statusCodes, GoogleSigninButton } from '@react-native-goo
 
 export default function App() {
 
-  React.useEffect(() =&gt; {
+  React.useEffect(() => {
     GoogleSignin.configure({
       webClientId: "824546136739-g11csddbqrh6tjh6m1in5kfima42ohtg.apps.googleusercontent.com", 
       offlineAccess: true
     });
   }, [])
 
-  const GoogleSingUp = async () =&gt; {
+  const GoogleSingUp = async () => {
     try {
       await GoogleSignin.hasPlayServices();
-      await GoogleSignin.signIn().then(result =&gt; { console.log(result) });
+      await GoogleSignin.signIn().then(result => { console.log(result) });
     } catch (error) {
       if (error.code === statusCodes.SIGN_IN_CANCELLED) {
         alert('User cancelled the login flow !');
@@ -32,7 +32,7 @@ export default function App() {
       <GoogleSigninButton
         size={GoogleSigninButton.Size.Wide}
         color={GoogleSigninButton.Color.Dark}
-        onPress={GoogleSignin}
+        onPress={GoogleSingUp}
       />;
     </View>
   );
